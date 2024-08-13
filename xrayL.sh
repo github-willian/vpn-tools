@@ -9,7 +9,7 @@ IP_ADDRESSES=($(hostname -I))
 install_xray() {
 	echo "安装 Xray..."
 	apt-get install unzip -y || yum install unzip -y
-        if uname -m | grep -qi '^arm'; then
+        if uname -m | grep -qi '^arm' || uname -m | grep -qi '^aarch64'; then
             wget https://github.com/XTLS/Xray-core/releases/download/v1.8.23/Xray-linux-arm64-v8a.zip
 	    unzip Xray-linux-arm64-v8a.zip
 	else
